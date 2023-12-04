@@ -10,11 +10,11 @@ This repository is a collection of practices from the subject Computer Architect
 A resettable flip-flop
 
 Parameters:
--Input
+- Input
      - clk 1b
      - reset 1b
      - d Nb
--Output
+- Output
      - q Nb
 
 always_ff is activated every time there is a positive (rising) clock edge and another positive reset edge. There is an if which determines the behavior of the flip-flop, when reset is positive it sets q (output) to all zeros, on the other hand the else copies the value of input d into q.
@@ -26,27 +26,27 @@ In summary, this flopr module represents a flip-flop that can be reset to zero w
 Perform a sign extension
 
 Parameters:
--Input
+- Input
      - at 32b
--Output
+- Output
      - and 64b
 
 always_comb is a combinational process, that is, the output 'y' is calculated based on the input 'a' immediately in response to any change in 'a'. casez(a[31:21]), examine bits 31 to 21 of 'a';
 in the case of LDUR and STUR: if the 11 bits follow the pattern of these instructions (bit ? does not matter if it is 0 or 1), bit a[20] is extended to bit 55, and copied to[20:12 ] in bits y[54:46].
 The other cases are similar, there is a generic 'default' case which sets 'y' to all its bits 0 if it does not meet any of the previous cases.
 
-### aluminum
+### alu
 
 This ALU performs various logical and arithmetic operations on two operands a and b, controlled by the ALUControl control signal, and produces a result along with a zero signal indicating whether the result is zero.
 
 Parameters:
--Input
+- Input
      - at 64b
-     -b 64b
+     - b 64b
      - ALUControl 4b
--Output
+- Output
      - result 64b
-     -zero 1b
+     - zero 1b
 
 always_comb, this block is executed every time any of the inputs change, cases are made on the ALUControl bits, where it is determined which operation is executed on the variables a and b (a & b AND, a | b OR, a + b SUM , a - b SUBTRACT, b PASS B) and the result is saved in result, then the default case puts result in all 0s, and then there is a conditional outside the casez where if result == 0, zero is 1.
 
@@ -55,10 +55,10 @@ always_comb, this block is executed every time any of the inputs change, cases a
 It appears to be an implementation of a ROM (Read-Only Memory) in SystemVerilog with a word size of 32 bits. ROM stores data that does not change during system operation and allows that data to be read based on an input address addr.
 
 Parameters:
--Input
-     -addr 6b
--Output
-     -q 32b
+- Input
+     - addr 6b
+- Output
+     - q 32b
 
 logic [0:N-1] ROM [0:63];: This line declares an array called ROM of 64 elements, each of which is a 32-bit word.
 In the initial block the ROM memory is initialized with the specified data from 32b.
@@ -69,14 +69,14 @@ Then it assigns q the ROM value at the index given by addr.
 It appears to be a log file in SystemVerilog. A register file is a component in a processor architecture that stores register values and allows reading and writing of those values.
 
 Parameters:
--Input
+- Input
      - clk 1b
      - we3 1b
      - ra1 4b
      - ra2 4b
      - wa3 4b
      - wd3 64b
--Output
+- Output
      - rd1 64b
      - rd2 64b
 
@@ -94,9 +94,9 @@ In short, this regfile module represents a register file with 32 registers of 64
 Main decoder, appears to be a component in a processor design that decodes an instruction represented by the Op signal to drive various control signals within the processor.
 
 Parameters:
--Input
-     -Op 11b
--Output
+- Input
+     - Op 11b
+- Output
      - Reg2Loc 1b
      - ALUSrc 1b
      - MemtoReg 1b
@@ -104,7 +104,7 @@ Parameters:
      - MemRead 1b
      - MemWrite 1b
      - Branch 1b
-     -AlUOp 2b
+     - AlUOp 2b
 
 Where Op determines the operation or instruction to be decoded, and all the others, the control signals, where according to the practical table, must be assigned.
 
@@ -115,12 +115,12 @@ In the always_comb block it does an analysis by Op cases, where depending on wha
 It appears to be a stage of the fetch stage in a processor. Its main function is to calculate the memory address of the next instruction to be fetched in the instruction memory (IMem) and provide this address to the fetch stage.
 
 Parameters:
--Input
+- Input
      - PCSrc_F 1b
      - clk 1b
      - reset 1b
      - PCBranch_F 64b
--Output
+- Output
      - imem_addr_F 64b
 
 Where: PCSrc_F indicates whether the address of the next instruction comes from the output of the previous stage or the output of the execution stage, it is a control signal that controls the source selection for the instruction address. PCBranch_F carries the address of the jump instruction calculated at the execution stage. imem_addr_F carries the memory address of the next instruction to be fetched in the instruction memory (IMem).
@@ -138,14 +138,14 @@ Then in the always_ff block which is activated with the positive edge of clk, it
 the execution stage of a processor.
 
 Parameters:
--Input
+- Input
      - AluSrc 1b
-     -AluControl 4b
+     - AluControl 4b
      - PC_E 64b
      - signImm_E 64b
      - readData1_E 64b
      - readData2_E 64b
--Output
+- Output
      - PCBranch_E 64b
      - aluResult_E 64b
      - writeData_E 64b
@@ -170,10 +170,10 @@ In summary, the execute module represents the execution stage of a processor and
 implements a sum of two N-bit numbers
 
 Parameters:
--Input
+- Input
      - at 64b
-     -b 64b
--Output
+     - b 64b
+- Output
      - and 64b
 
 Save in and the sum between a and b.
@@ -183,11 +183,11 @@ Save in and the sum between a and b.
 N-bit 2-to-1 multiplexer, takes two data inputs (d0 and d1 in this case), along with a select signal(s), and selects one of the two data inputs to route to the output and based on of the value of the selection signal.
 
 Parameters:
--Input
-     -d0 64b
+- Input
+     - d0 64b
      - d1 64b
-     -s 1b
--Output
+     - s 1b
+- Output
      - and 64b
 
 Save in y the value of d1 if s is 1,otherwise the value of d0 is saved
@@ -197,14 +197,14 @@ Save in y the value of d1 if s is 1,otherwise the value of d0 is saved
 Shift Left 2, performs a 2-bit shift left operation on a data input a.
 
 Parameters:
--Input
+- Input
      - at 64b
--Output
+- Output
      - and 64b
 
 Stores in the least significant bits of y (y[0], y[1]) the value 0, so that these two bits are discarded when doing the shift left, and saves in y from bit 2 to the last, the 62 bits from a, leaving something like this: 0b ???? ...??00 -> 64b
 
-##Given by teachers
+## Given by teachers
 
 ### memory
 
