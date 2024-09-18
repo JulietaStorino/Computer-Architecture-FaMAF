@@ -6,9 +6,7 @@ This repository is a collection of practices from the subject Computer Architect
 
 ## Implemented in practice 1:
 
-### flopr
-A resettable flip-flop
-
+### flopr (resettable flip-flop)
 Parameters:
 - Input
      - clk 1b
@@ -20,11 +18,7 @@ Parameters:
 always_ff is activated every time there is a positive (rising) clock edge and another positive reset edge. There is an if which determines the behavior of the flip-flop, when reset is positive it sets q (output) to all zeros, on the other hand the else copies the value of input d into q.
 In summary, this flopr module represents a flip-flop that can be reset to zero when the reset signal is activated, and copies the input data d to the output q when the reset is not activated.
 
-
-### signext
-
-Perform a sign extension
-
+### signext (sign extension)
 Parameters:
 - Input
      - at 32b
@@ -39,6 +33,7 @@ The other cases are similar, there is a generic 'default' case which sets 'y' to
 
 This ALU performs various logical and arithmetic operations on two operands a and b, controlled by the ALUControl control signal, and produces a result along with a zero signal indicating whether the result is zero.
 
+### alu (Arithmetic Logic Unit)
 Parameters:
 - Input
      - at 64b
@@ -50,10 +45,7 @@ Parameters:
 
 always_comb, this block is executed every time any of the inputs change, cases are made on the ALUControl bits, where it is determined which operation is executed on the variables a and b (a & b AND, a | b OR, a + b SUM , a - b SUBTRACT, b PASS B) and the result is saved in result, then the default case puts result in all 0s, and then there is a conditional outside the casez where if result == 0, zero is 1.
 
-### imem
-
-It appears to be an implementation of a ROM (Read-Only Memory) in SystemVerilog with a word size of 32 bits. ROM stores data that does not change during system operation and allows that data to be read based on an input address addr.
-
+### imem (Instruction Memory)
 Parameters:
 - Input
      - addr 6b
@@ -64,10 +56,7 @@ logic [0:N-1] ROM [0:63];: This line declares an array called ROM of 64 elements
 In the initial block the ROM memory is initialized with the specified data from 32b.
 Then it assigns q the ROM value at the index given by addr.
 
-### regfile
-
-It appears to be a log file in SystemVerilog. A register file is a component in a processor architecture that stores register values and allows reading and writing of those values.
-
+### regfile (Register File)
 Parameters:
 - Input
      - clk 1b
@@ -86,13 +75,7 @@ logic [63:0] REG [0:31]: This line declares an array called REG of 32 registers,
 In the always_ff block, it is activated on each rising edge of the clock that updates the register file if we3 is true and the address wa3 is not 31 (this to avoid writing to register 31, which is a reserved register).
 In the always_comb block, if ra1 is equal to wa3, wa3 is checked to be other than 31, if this happens, rd1 is set to wd3 (write), otherwise (if ra1 !== wa3), the value is read of REG[ra1] (read). Then another if that verifies if ra2 is equal to wa3, and the same thing happens as the previous if, except that otherwise the value REG[ra2] is read.
 
-In short, this regfile module represents a register file with 32 registers of 64 bits each. It allows reading and writing data to these registers based on the control signals and addresses provided. When reading from a register that is being written at the same time, you choose between the write value (wd3) or the value of the original register.
-
-
-### maindec
-
-Main decoder, appears to be a component in a processor design that decodes an instruction represented by the Op signal to drive various control signals within the processor.
-
+### maindec (Main Decoder)
 Parameters:
 - Input
      - Op 11b
@@ -110,10 +93,7 @@ Where Op determines the operation or instruction to be decoded, and all the othe
 
 In the always_comb block it does an analysis by Op cases, where depending on what Op is, it is an instruction, such as, LDUR, STUR, CBZ, ADD and SUB, AND and ORR, and we assign each one as it is in the table, the default case does not perform any of the above operations.
 
-###fetch
-
-It appears to be a stage of the fetch stage in a processor. Its main function is to calculate the memory address of the next instruction to be fetched in the instruction memory (IMem) and provide this address to the fetch stage.
-
+### fetch
 Parameters:
 - Input
      - PCSrc_F 1b
@@ -134,9 +114,6 @@ mux2 MUX(added, PCBranch_F, PCSrc_F, d): This mux2 module selects between the ca
 Then in the always_ff block which is activated with the positive edge of clk, it assigns the memory address calculated in 'q' to 'imem_addr_F', which is used to search for the next instruction in the instruction memory.
 
 ### execute
-
-the execution stage of a processor.
-
 Parameters:
 - Input
      - AluSrc 1b
@@ -165,10 +142,7 @@ Finally, the value of readData2_E is assigned to writeData_E, which could be rel
 
 In summary, the execute module represents the execution stage of a processor and performs execution operations such as arithmetic and logical calculations, jump calculations, and setting corresponding control signals based on the provided inputs. The outputs reflect the results of these operations and are used in subsequent stages of the processor.
 
-### adder
-
-implements a sum of two N-bit numbers
-
+### adder (Sum of two N-bits numbers)
 Parameters:
 - Input
      - at 64b
@@ -178,10 +152,7 @@ Parameters:
 
 Save in and the sum between a and b.
 
-### mux2
-
-N-bit 2-to-1 multiplexer, takes two data inputs (d0 and d1 in this case), along with a select signal(s), and selects one of the two data inputs to route to the output and based on of the value of the selection signal.
-
+### mux2 (2-to-1 multiplexer)
 Parameters:
 - Input
      - d0 64b
@@ -192,10 +163,7 @@ Parameters:
 
 Save in y the value of d1 if s is 1,otherwise the value of d0 is saved
 
-### sl2
-
-Shift Left 2, performs a 2-bit shift left operation on a data input a.
-
+### sl2 (2-bit Shift Left)
 Parameters:
 - Input
      - at 64b
@@ -205,15 +173,9 @@ Parameters:
 Stores in the least significant bits of y (y[0], y[1]) the value 0, so that these two bits are discarded when doing the shift left, and saves in y from bit 2 to the last, the 62 bits from a, leaving something like this: 0b ???? ...??00 -> 64b
 
 ## Given by teachers
-
-### memory
-
-### dmem
-
-### decode
-
-### datapath
-
-### controller
-
-### aludec
+* memory
+* dmem
+* decode
+* datapath
+* controller
+* aludec
