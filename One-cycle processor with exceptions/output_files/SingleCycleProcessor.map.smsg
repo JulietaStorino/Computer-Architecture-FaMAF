@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at controller.sv(8): object "Exc" differs only in case from object "exc" in the same scope File: /home/julieta/Documents/Arqui/Computer-Architecture-FaMAF/One-cycle processor with exceptions/controller.sv Line: 8

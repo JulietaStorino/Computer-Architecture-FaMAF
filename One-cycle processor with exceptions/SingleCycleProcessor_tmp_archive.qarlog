@@ -1,0 +1,49 @@
+Quartus Prime Archive log --	/home/juli/Documentos/AC/Practico2/SingleCycleProcessor_tmp_archive.qarlog
+
+Archive:	/home/juli/Documentos/AC/Practico2/SingleCycleProcessor_tmp_archive.qar
+Date:		Sun Oct  8 17:00:10 2023
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/juli/Documentos/AC/Practico2/SingleCycleProcessor.qpf
+/home/juli/Documentos/AC/Practico2/SingleCycleProcessor.qsf
+/home/juli/Documentos/AC/Practico2/adder.sv
+/home/juli/Documentos/AC/Practico2/alu.sv
+/home/juli/Documentos/AC/Practico2/alu_tb.sv
+/home/juli/Documentos/AC/Practico2/aludec.sv
+/home/juli/Documentos/AC/Practico2/assignment_defaults.qdf
+/home/juli/Documentos/AC/Practico2/controller.sv
+/home/juli/Documentos/AC/Practico2/datapath.sv
+/home/juli/Documentos/AC/Practico2/decode.sv
+/home/juli/Documentos/AC/Practico2/dmem.vhd
+/home/juli/Documentos/AC/Practico2/execute.sv
+/home/juli/Documentos/AC/Practico2/execute_tb.sv
+/home/juli/Documentos/AC/Practico2/fetch.sv
+/home/juli/Documentos/AC/Practico2/fetch_tb.sv
+/home/juli/Documentos/AC/Practico2/flopr.sv
+/home/juli/Documentos/AC/Practico2/flopr_32_tb.sv
+/home/juli/Documentos/AC/Practico2/flopr_64_tb.sv
+/home/juli/Documentos/AC/Practico2/imem.sv
+/home/juli/Documentos/AC/Practico2/imem_tb.sv
+/home/juli/Documentos/AC/Practico2/maindec.sv
+/home/juli/Documentos/AC/Practico2/maindec_tb.sv
+/home/juli/Documentos/AC/Practico2/memory.sv
+/home/juli/Documentos/AC/Practico2/mux2.sv
+/home/juli/Documentos/AC/Practico2/processor_arm.sv
+/home/juli/Documentos/AC/Practico2/processor_tb.sv
+/home/juli/Documentos/AC/Practico2/regfile.sv
+/home/juli/Documentos/AC/Practico2/regfile_tb.sv
+/home/juli/Documentos/AC/Practico2/signext.sv
+/home/juli/Documentos/AC/Practico2/signext_tb.sv
+/home/juli/Documentos/AC/Practico2/sl2.sv
+/home/juli/Documentos/AC/Practico2/writeback.sv
+	======= Total: 32 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Sun Oct  8 17:00:12 2023
+Source archive file:	/home/juli/Documentos/AC/Practico2/SingleCycleProcessor_tmp_archive.qar
+Archive was extracted into	/home/juli/Documentos/AC/LAB/
+		 - successfully.
