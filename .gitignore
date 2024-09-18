@@ -12,17 +12,10 @@ SingleCycleProcessor.bdf Block diagram / Schematic file (top level schematic fil
 SingleCycleProcessor.vhd VHDL file (top level VHDL file)
 SingleCycleProcessor.v Verilog file (top level Verilog file)
 
-# component source files:
-component_name.bsf Block Symbol file (component symbol file)
-component_name.vhd VHDL file (top level VHDL file)
-component_name.v Verilog file (top level Verilog file)
-
 # SOPC builder project source files (SOPC builder creates many VHDL or Verilog files, that you do not need to store)
 sopc_SingleCycleProcessor.ptf the list and configuration of components selected in the SOPC gui
 sopc_SingleCycleProcessor.bsf Block Symbol file (SOPC component symbol file, especially if you modified it)
 
-# Board Description (if you created your own board, the list is incomplete!)
-board_name/class.ptf
 
 # software source files:
 tbd
@@ -31,12 +24,9 @@ tbd
 
 # hardware binary files
 SingleCycleProcessor.sof SRAM Object File
-db/SingleCycleProcessor.db_info Quartus II database file
 
 # software binary files
 tbd
-
-/*
 !/*.gitignore
 ##
 !*.qpf
@@ -49,8 +39,6 @@ tbd
 ##
 !*.ptf
 !*.bsf
-##
-!**/class.ptf
 ##
 !*.tbd
 ##

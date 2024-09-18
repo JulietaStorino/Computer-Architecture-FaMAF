@@ -2,9 +2,19 @@
 
 This repository is a collection of practices from the subject Computer Architecture.
 
-# SUMMARY OF THE MODULES
+## Directories
 
-## Implemented in practice 1:
+### One-cycle processor without exception
+This directory contains the implementation of a one-cycle processor without exception handling. Includes the practices 1 to 2.
+
+![Top Level ARM processor](https://i.ibb.co/JpjC7HW/Screenshot-from-2024-09-18-01-30-00.png)
+
+### One-cycle processor with exception
+This directory contains the implementation of a one-cycle processor with exception handling. Include the practice 3.
+
+![Top Level ARM processor](https://i.ibb.co/8s7tR10/Screenshot-from-2024-09-18-01-34-37.png)
+
+## SUMMARY OF THE MODULES
 
 ### flopr (resettable flip-flop)
 Parameters:
@@ -179,3 +189,8 @@ Stores in the least significant bits of y (y[0], y[1]) the value 0, so that thes
 * datapath
 * controller
 * aludec
+* flopr_e
+* mux4
+* ESync
+* comp_n
+
